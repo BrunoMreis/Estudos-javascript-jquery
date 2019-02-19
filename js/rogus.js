@@ -18,15 +18,12 @@ function onQuantityChange() {
 	writeTotal(calculateTotalProducts());
 }
 
-function onDocumentLoad() {
-	var textEdits = document.getElementsByClassName("quantity");
 
-	for(var i = 0; i < textEdits.length; i++) {
-		textEdits[i].onchange = onQuantityChange;
-	}
-}
-
-window.onload = onDocumentLoad;
+window.onload = $(function() {
+    $(".quantity").change(function() {
+    writeTotal(calculateTotalProducts());
+    });
+});
 
 
 if(document.getElementsByClassName == undefine){
